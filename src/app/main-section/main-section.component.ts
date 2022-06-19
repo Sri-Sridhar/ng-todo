@@ -48,7 +48,7 @@ export class MainSectionComponent implements OnInit {
     snackRef.onAction().subscribe(() => {
       console.log('undo clicked');
       // el.style.display = 'block';
-      this._snackbar.open('hehe','',{ duration: 1000 });
+      this._snackbar.open('feature is limited to pro users 🥰','',{ duration: 1000 });
     });
 
     if (this.doneTodoList.includes(todo) && todo.isDone == true) {
