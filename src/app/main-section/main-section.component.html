@@ -1,0 +1,69 @@
+<div class="theme-fabby">
+  <button mat-fab (click)="toggleTheme()" matTooltip="switch theme">
+    <mat-icon>brightness_4</mat-icon>
+  </button>
+</div>
+
+<section class="main-container">
+  <h1 align="center">
+    <mat-icon>task_alt</mat-icon> TO-DO APP
+  </h1>
+  <div class="checkontainer">
+    <div class="unchecked-container">
+      <div class="unchecked-empty" *ngIf="todoList.length == 0">
+        <div *ngIf="todoList.length == 0 && doneTodoList.length == 0">
+          <mat-icon>sentiment_neutral</mat-icon>
+          <p>It's empty in here... <br> Click the Add(+) button to add new todo!</p>
+        </div>
+        <div *ngIf="todoList.length == 0 && doneTodoList.length > 0">
+          <mat-icon>sentiment_satisfied_alt</mat-icon>
+          <p>Woah! All todos are checked! <br> Click the Add(+) button to add new todo!</p>
+        </div>
+      </div>
+      <mat-card matRipple *ngFor="let todo of todoList">
+        <div #card title="todo.content">
+          <mat-checkbox color="primary" (change)="todoChecked(todo)" [checked]="todo.isDone">{{ todo.content }}
+          </mat-checkbox>
+          <span class="actions">
+            <button mat-icon-button (click)="editTodo(todo)" matTooltip="edit todo">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteTodo(todo, card)" matTooltip="delete todo">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </span>
+        </div>
+      </mat-card>
+    </div>
+    <mat-accordion class="checked-container">
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3>Completed ({{doneTodoList.length}})</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card matRipple *ngFor="let todo of doneTodoList" [class.my-light-theme]="isLight">
+          <div #dcard title="todo.content">
+            <mat-checkbox color="primary" class="checked" (change)="todoChecked(todo)" [checked]="todo.isDone">
+              {{ todo.content }}
+            </mat-checkbox>
+            <span class="actions">
+              <button mat-icon-button color="warn" (click)="deleteTodo(todo, dcard)" matTooltip="delete todo">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </span>
+          </div>
+        </mat-card>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</section>
+
+<div class="fabby">
+  <button mat-fab (click)="addTodo()" matTooltip="add new todo">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<!-- create custom directive to text-decoration: line-through when checked -->
+<!-- unique template ref for card to hide when deleted -->

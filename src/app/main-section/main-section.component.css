@@ -1,0 +1,92 @@
+.main-container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 900;
+  padding: 1.5rem;
+}
+
+h1>mat-icon {
+  font-size: 78px;
+}
+
+h3 {
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.checkontainer {
+  background-color: rgba(204, 204, 204, .2);
+  border-radius: 12px;
+  width: 80%;
+  height: 70vh;
+  position: relative;
+}
+
+mat-card {
+  margin: 1em 2em;
+  padding: 1.5em;
+  font-size: 1.2em;
+  background-color: #666;
+}
+
+.unchecked-empty {
+  min-height: 250px;
+  color: #888;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.unchecked-empty mat-icon {
+  font-size: 3em;
+}
+
+.checked-container {
+  margin: 2em 2em 1em;
+}
+
+.checked-container mat-card {
+  background-color: #333;
+}
+
+.checked-container mat-card.my-light-theme {
+  background-color: #eee;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.actions {
+  float: right;
+}
+
+.fabby {
+  position: fixed;
+  right: 4%;
+  bottom: 5%;
+}
+
+.theme-fabby {
+  position: fixed;
+  right: 4%;
+  top: 5%;
+}
+
+.theme-fabby button {
+  background-color: #222;
+}
+
+.fabby button {
+  padding: 3%;
+  width: 5rem;
+  height: 5rem;
+}
